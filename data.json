@@ -2,8 +2,43 @@
     {
         "serviceName":"Loti-Chingri",
         "price":10,
-        "serviceDetails":"Vegetables of winter season not only taste better, but may contain ingredients that suit the body's needs for that time of the year. It’s winter, now we are surrounded by a variety of colorful vegetables which has many health benefits. Eating vegetables in their natural growing and harvesting season can ensure that they are the most nutrient dense and healthy for you as well. \n If you haven’t tried Loti-Chingri, you are probably missing out the most tastiest Bangla Dish. I am cooking this with an authentic recipe, but many people today do not really know how to cook Loti-Chingri.",
+        "image":"https://raw.githubusercontent.com/aroy15/image-store/master/food-service/loti-chingri.webp",
+        "serviceDetails":"Vegetables of winter season not only taste better, but may contain ingredients that suit the body's needs for that time of the year. It’s winter, now I am surrounded by a variety of colorful vegetables which has many health benefits. Eating vegetables in their natural growing and harvesting season can ensure that they are the most nutrient dense and healthy for you as well. If you haven’t tried Loti-Chingri, you are probably missing out the most tastiest Bangla Dish. I am cooking this with an authentic recipe, but many people today do not really know how to cook Loti-Chingri. ** 4 Pax Loti Chingri price is 599 Taka. ** If you want to add Shutki Flavor with it, price for 4 Pax would be 800 Taka. Just mention Shutki Flavor on the Diner’s Note in case it matches with your taste.",
         "rating":4.5
-
+    },    
+    {
+        "serviceName":"500 Gram - Pabda Fish Bhuna",
+        "price":15,
+        "image":"https://raw.githubusercontent.com/aroy15/image-store/master/food-service/pabda-fish-bhuna.webp",
+        "serviceDetails":"Pabda Fish Bhuna is a 100% Bangladesh Dish. The buttery texture of the fish makes it delicately mix with the flavored gravy and also imparts its distinct flavorto the curry. You will be surprised at the softness and the buttery / oily consistency of this fish that conveys a unique taste to your taste buds. There will be approximately 8-12 Pcs of Pabda Fish in this dish, depending on the size of fish available in the market the number of fishes will vary. This succulent and heavily flavored dish go outstanding with plain rice and 500 gram Pabda Fish Bhuna can be shared at least among 4 people.",
+        "rating":5
+    },    
+    {
+        "serviceName":"700 gm Egg's Halwa",
+        "price":12,
+        "image":"https://raw.githubusercontent.com/aroy15/image-store/master/food-service/egg-halwa.webp",
+        "serviceDetails":"Egg's Halwa is a traditional dessert that is made using Egg, Milk, Sugar, Ghee & some herbs. It’s very popular among the countries within this sub-continent. There are many variety of Dim Halwa available, but the one I am offering is soft & consumed with spoon. It's a soft textured halwa that will instantly melt in your mouth. Egg's Halwa is rich in nutrients, including proteins, vitamins and minerals. Dim Halwa can be consumed by any age group, but this is particularly beneficial for Kids, Toddlers, Adolescents and Pregnant Women because it influences kids’ natural growth. ** 700 Gram Dim Halwa can be shared among 6-7 people.",
+        "rating":4.8
+    },    
+    {
+        "serviceName":"1 KG Mutton White Korma",
+        "price":30,
+        "image":"https://raw.githubusercontent.com/aroy15/image-store/master/food-service/mutton-white-korma.webp",
+        "serviceDetails":"Mutton Korma is a simple but yet most sought after mughlai dish either at functions or casual meals. Mutton Korma is one of the best mutton dish to try. It is cherished as an authentic dish which is rich and full of flavors. If you have any special occasion coming up or want to try something royal and rich for your weekend, do try this Mutton Korma. I am offering this Authentic Mutton Korma, one of the finest royal mutton recipes loaded with rich Mughlai flavors to feast on together with your family. I Kilo Mutton Korma will have about 12 Pcs and can be shared among 6 people. Mutton Korma will be good with Pulao, Roti, Porata, Naan, etc. Due to its sweet taste it may not be good with Plain Rice.",
+        "rating":5
+    },    
+    {
+        "serviceName":"Seasonal Mix Vegetables",
+        "price":8,
+        "image":"https://raw.githubusercontent.com/aroy15/image-store/master/food-service/seasonal-mix-veg.webp",
+        "serviceDetails":"Colorful vegetables which has many health benefits. Eating vegetables in their natural growing and harvesting season can ensure that they are the most nutrient dense and healthy for you as well. Yet I am offering another finest vegetable dish made out of Cauliflower & Potato. I bet you would love to have this dish again and again.",
+        "rating":5
+    },    
+    {
+        "serviceName":"20 Pieces Frozen Paratha",
+        "price":10,
+        "image":"https://raw.githubusercontent.com/aroy15/image-store/master/food-service/frozen-paratha.webp",
+        "serviceDetails":"Per portion contains 20 pieces. Frozen Poratas are made out of finest quality of flour with a little oil within the layers to make it healthier to focus on having a balance diet. They are half cooked which enables to store for over a month in the refrigerator. Depending on your taste you can deep fry them with oil or clarified butter. Or else you can also cook them with little oil or without oil. Perfect for Breakfast, Lunch & Dinner",
+        "rating":4.4
     }
 ]

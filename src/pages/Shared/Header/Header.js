@@ -12,13 +12,13 @@ const Header = () => {
                     fluid={true}
                     rounded={true}
                 >
-                    <Navbar.Brand href="https://flowbite.com/">
+                    <Link to='/' className='flex items-center'>
                         <img
                             src={logo}
                             className="mr-3 h-6 sm:h-9"
                             alt="Food Service"
                         />
-                    </Navbar.Brand>
+                    </Link>
                     <div className="flex md:order-2">
                         <button className='bg-secondary hover:bg-primary text-white rounded px-7 py-3 uppercase font-semibold border-0'>login</button>
 
