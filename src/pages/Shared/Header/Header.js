@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <header className='header'>
+        <header className='header fixed top-0 left-0 w-full'>
             <div className="lg:container mx-auto">
                 <Navbar
                     fluid={true}
@@ -20,9 +20,8 @@ const Header = () => {
                         />
                     </Navbar.Brand>
                     <div className="flex md:order-2">
-                        <Button className='bg-secondary hover:bg-primary'>
-                            login
-                        </Button>
+                        <button className='bg-secondary hover:bg-primary text-white rounded px-7 py-3 uppercase font-semibold border-0'>login</button>
+
                         <Navbar.Toggle />
                     </div>
                     <Navbar.Collapse className='menu_item'>
