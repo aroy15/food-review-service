@@ -1,4 +1,3 @@
-import { Card } from 'flowbite-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +5,7 @@ const ServiceCard = ({ service }) => {
     const { serviceName, serviceDetails, image, price, _id } = service;
     return (
 
-        <div className="w-full border border-primary bg-white rounded-lg overflow-hidden shadow-md">
+        <div className="w-full text-center md:text-left border border-primary bg-white rounded-lg overflow-hidden shadow-md">
             <a href="#">
                 <img className="h-80 w-full object-cover object-center" src={image} alt={serviceName} />
             </a>
