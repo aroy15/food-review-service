@@ -12,7 +12,12 @@ const ServiceCard = ({ service }) => {
             </a>
             <div className="px-5 py-5">
                 <h3 className="text-2xl uppercase font-bold tracking-tight text-black">{serviceName}</h3>
-                <p className='py-6'>{serviceDetails.slice(0,90)}...</p>
+                <p className='py-6'>{
+                    serviceDetails < 100 ?
+                        serviceDetails
+                        :
+                        serviceDetails.slice(0, 90)
+                }...</p>
                 <div className="flex justify-between items-center">
                     <span className="text-3xl font-bold text-primary">${price}</span>
                     <Link to={`/services/${_id}`} className="hover:bg-primary font-semibold rounded uppercase bg-secondary py-2 px-6 text-white">Details</Link>
