@@ -27,7 +27,7 @@ const ServicesSection = () => {
                         ></ServiceCard>)
                     }
                 </div>
-                <Link to='/services' class="bg-secondary hover:bg-primary transition text-white rounded px-7 py-3 uppercase font-semibold border-0">See All Services</Link>
+                <Link to='/services' className="bg-secondary hover:bg-primary transition text-white rounded px-7 py-3 uppercase font-semibold border-0">See All Services</Link>
             </div>
         </section>
     );

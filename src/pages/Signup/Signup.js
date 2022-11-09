@@ -1,10 +1,56 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import servicesBg from '../../assets/img/services-bg.webp'
 import deliveryImg from '../../assets/img/food-delevery-free.jpg'
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Signup = () => {
+    const [error, setError] = useState('');
+    const {signUpWithCreateUser, updateUserProfile, setLoading} = useContext(AuthContext);
+    const navigate = useNavigate();
+
     const handleSignup = event => {
+        event.preventDefault();
+
+        setError('')
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photoURL = form.photoURL.value;
+        const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
+       
+        if(password.length < 6){
+            setError('Inputted password should be minimum 6 character.');
+            return;
+        }
+
+        if(password !== confirmPassword){
+            setError('Password not matching')
+            return;
+        }
+        signUpWithCreateUser(email, password)
+        .then(result => {
+            const profile ={
+                displayName: name, 
+                photoURL: photoURL
+            }
+            updateUserProfile(profile)
+            .then(()=>{   
+                setLoading(true)
+                console.log('profile updated')
+            })
+            .catch(error =>  {
+                const errorMessage = error.message;
+                setError(errorMessage)
+            })
+
+            const user = result.user;
+            console.log(user);
+            form.reset();
+            navigate('/')
+        })
+        .catch(err=>setError(err.message))
 
     }
     return (
@@ -24,6 +70,9 @@ const Signup = () => {
                             <input type="password" name="confirmPassword" placeholder="Confirm Password" className="input input-md h-12 rounded px-5 border border-primary" required />
                             <input className='btn border-0 bg-secondary hover:bg-primary h-12 rounded px-5 col-span-full text-white uppercase font-bold' type="submit" value="Sign Up" />
                         </form>
+                        {
+                           error &&  <p className='pt-6 text-red-500'>{error}</p>
+                        }                        
                         <p className='pt-6'>Already Registered? Please <Link className='text-secondary' to='/login'>Login</Link></p>
                     </div>
                 </div>

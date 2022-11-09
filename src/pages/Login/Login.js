@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import servicesBg from '../../assets/img/services-bg.webp'
 import deliveryImg from '../../assets/img/food-delevery-free.jpg'
 import gogoleIcon from '../../assets/img/google-icon.webp'
@@ -7,10 +7,33 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const {loginWithGoogle} = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const {logIn, loginWithGoogle} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state?.from?.pathname || '/';
+
     const googleProvider = new GoogleAuthProvider()
 
     const handleLogin = event => {
+        event.preventDefault();
+        setError('')
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        logIn(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+            navigate(from, {replace: true});
+        })
+        .catch(err =>{
+            const message = err.message;
+            if(message){
+                setError('Email or Password not matching')
+            }
+        })
 
     }
     const handleGoogleLogin = () =>{
@@ -18,6 +41,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user)
+            navigate(from, {replace: true});
         })
         .catch(err=>console.log(err))
     }
@@ -36,6 +60,9 @@ const Login = () => {
                             <input className='btn border-0 bg-secondary hover:bg-primary h-12 rounded px-5 col-span-full text-white uppercase font-bold' type="submit" value="Login" />
                         </form>
                         <button onClick={handleGoogleLogin} className='btn w-full border-2 border-secondary py-2 rounded px-5 col-span-full text-secondary hover:shadow-md uppercase font-bold flex gap-3 items-center justify-center'><img src={gogoleIcon} className="w-6" alt=""/>Login With Google</button>
+                        {
+                           error &&  <p className='pt-6 text-red-500'>{error}</p>
+                        }  
                         <p className='pt-6'>New User? Please <Link className='text-secondary' to='/signup'>Sign Up</Link></p>
                     </div>
                 </div>
