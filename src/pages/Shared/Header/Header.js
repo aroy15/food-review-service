@@ -1,10 +1,13 @@
 import { Navbar } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css'
 import logo from '../../../assets/img/food-logo.png';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const {user} = useContext(AuthContext);
+
     return (
         <header className='header fixed top-0 left-0 w-full'>
             <div className="lg:container mx-auto">
@@ -20,7 +23,13 @@ const Header = () => {
                         />
                     </Link>
                     <div className="flex md:order-2">
-                        <Link to='/login' className='bg-secondary hover:bg-primary text-white rounded px-7 py-2 uppercase font-semibold border-0'>login</Link>
+                        {
+                            !user?.email ?
+                            <Link to='/login' className='bg-secondary hover:bg-primary text-white rounded px-7 py-2 uppercase font-semibold border-0'>login</Link>
+                            :
+                            <button  className='bg-secondary hover:bg-primary text-white rounded px-7 py-2 uppercase font-semibold border-0'>log out</button> 
+                        }
+                        
                         <Navbar.Toggle />
                     </div>
                     <Navbar.Collapse className='menu_item'>

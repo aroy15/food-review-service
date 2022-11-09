@@ -3,6 +3,7 @@ import Main from "../../layout/Main";
 import Blogs from "../../pages/Blogs/Blogs";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/Login";
+import MyReviews from "../../pages/MyReviews/MyReviews";
 import Services from "../../pages/Services/Services";
 import ServiceSingle from "../../pages/ServiceSingle/ServiceSingle";
 import Header from "../../pages/Shared/Header/Header";
@@ -31,7 +32,8 @@ export const routes = createBrowserRouter([
                 path:'/add-service'
             },
             {
-                path:'/my-reviews'
+                path:'/my-reviews',
+                element:<MyReviews></MyReviews>
             },
             {
                 path:'/blogs',

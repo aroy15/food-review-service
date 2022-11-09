@@ -3,7 +3,7 @@ import profilePlaceholder from '../../../assets/img/profile-placeholder.webp'
 
 const ReviewCard = () => {
     return (
-        <div className='bg-white p-4 rounded-md shadow text-center sm:text-left'>
+        <div className='bg-white p-4 rounded-md shadow-md border border-gray-200 text-center sm:text-left'>
             <div className="flex flex-col sm:flex-row sm:items-center mb-4 gap-4">
                 <img className="w-12 h-12 mx-auto  sm:mx-0 rounded-full" src={profilePlaceholder} alt="" />
                 <div className="space-y-1 font-medium">
