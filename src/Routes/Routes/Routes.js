@@ -2,8 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Blogs from "../../pages/Blogs/Blogs";
 import Home from "../../pages/Home/Home/Home";
+import Login from "../../pages/Login/Login";
 import Services from "../../pages/Services/Services";
 import ServiceSingle from "../../pages/ServiceSingle/ServiceSingle";
+import Header from "../../pages/Shared/Header/Header";
+import Signup from "../../pages/Signup/Signup";
 
 export const routes = createBrowserRouter([
     {
@@ -25,9 +28,31 @@ export const routes = createBrowserRouter([
                 element:<ServiceSingle></ServiceSingle>
             },
             {
+                path:'/add-service'
+            },
+            {
+                path:'/my-reviews'
+            },
+            {
                 path:'/blogs',
                 element:<Blogs></Blogs>
+            },
+            {
+                path:'/login',
+                element:<Login></Login>
+            },
+            {
+                path:'/signup',
+                element:<Signup></Signup>
+            },
+            {
+                path:'*',
+                element:<h1 className="text-5xl pt-32 text-center">404 Error. Page not found. Please check Nav Menu Bar</h1>
             }
-        ]
+        ],
+        errorElement:<>
+            <Header></Header>
+            <h1 className="text-5xl pt-32 text-center">Internet issue or Something wrong</h1>
+        </>
     }
 ])

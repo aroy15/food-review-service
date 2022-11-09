@@ -20,8 +20,7 @@ const Header = () => {
                         />
                     </Link>
                     <div className="flex md:order-2">
-                        <button className='bg-secondary hover:bg-primary text-white rounded px-7 py-3 uppercase font-semibold border-0'>login</button>
-
+                        <Link to='/login' className='bg-secondary hover:bg-primary text-white rounded px-7 py-2 uppercase font-semibold border-0'>login</Link>
                         <Navbar.Toggle />
                     </div>
                     <Navbar.Collapse className='menu_item'>

@@ -32,7 +32,7 @@ const ServiceSingle = () => {
             </section>
             <section className='pb-20'>
                 <div className="container">
-                    <div className='max-w-4xl w-full mx-auto bg-gray-200 p-6'>
+                    <div className='max-w-4xl w-full mx-auto bg-gray-200 p-6 rounded-md'>
                         {/* Add Review section */}
                         <h2 className='text-4xl pb-6 uppercase'>Please Add a Review</h2>
                         <form onSubmit={handleAddReview} className='grid grid-cols-1 md:grid-cols-2 gap-5'>
