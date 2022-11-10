@@ -38,7 +38,7 @@ const UpdateReview = () => {
             <div className="container">
                 <div className="flex flex-row items-center gap-6 lg:p-8 lg:bg-white sm:shadow rounded-md max-w-5xl w-full mx-auto">
                     <div className='w-2/5 hidden lg:flex flex-col justify-center items-center text-center'>
-                        <h3 className='text-3xl pb-5'> {serviceName && serviceName}</h3>
+                        <h3 className='text-2xl pb-5'> {serviceName && serviceName}</h3>
                         {image && <img src={image} className="w-full h-80 object-cover  rounded-md" alt="" />}
                     </div>
                     <div className='w-full lg:w-3/5 rounded py-12 px-8 shadow-md border border-gray-200 bg-white'>

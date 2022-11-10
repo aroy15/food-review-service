@@ -2,7 +2,7 @@ import React from 'react';
 import { FaRegEdit, FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const MyReviewCard = ({ review }) => {
+const MyReviewCard = ({ review, handleDeleteReview }) => {
     const { _id, name, email, photoURL, rating, message, date } = review;
     return (
         <div className='w-full md:w-1/2 lg:w-1/3 flex flex-col justify-between bg-white rounded-md shadow-md border border-gray-200 text-center sm:text-left overflow-hidden'>
@@ -18,7 +18,7 @@ const MyReviewCard = ({ review }) => {
             </div>
             <div className='pt-2 flex'>
                 <Link to={`/my-reviews/${_id}`} className='flex gap-3 items-center justify-center w-1/2 bg-secondary hover:bg-primary text-white p-2 uppercase font-semibold border-r-2 border-red-300'>Edit <FaRegEdit /></Link>
-                <button className='flex gap-3 items-center justify-center w-1/2 bg-secondary hover:bg-primary text-white p-2 uppercase font-semibold border-0'>Delete <FaTrashAlt /></button>
+                <button onClick={()=>handleDeleteReview(_id)} className='flex gap-3 items-center justify-center w-1/2 bg-secondary hover:bg-primary text-white p-2 uppercase font-semibold border-0'>Delete <FaTrashAlt /></button>
             </div>
         </div>
     );

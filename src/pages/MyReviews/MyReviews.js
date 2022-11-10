@@ -9,6 +9,7 @@ const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const [loading, setLoading] = useState(true);
 
+    // Edit
     useEffect(() => {
         fetch(`http://localhost:5000/reviews?email=${user?.email}`)
             .then(res => {
@@ -19,7 +20,28 @@ const MyReviews = () => {
                 setReviews(data)
                 setLoading(false)
             })
+            .catch(err => console.log(err))
     }, [user?.email])
+
+    // Delete
+    const handleDeleteReview = (_id) => {
+        const proceed = window.confirm('Are you sure, you want delete this review?')
+        if (proceed) {
+            fetch(`http://localhost:5000/reviews/${_id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if(data.deletedCount>0){
+                        alert('deleted successfully');
+                        const remainingReviews = reviews.filter(review=> review._id !== _id);
+                        setReviews(remainingReviews);
+                    }
+                })
+                .catch(err => console.log(err))
+        }
+    }
 
     return (
         <>
@@ -35,6 +57,7 @@ const MyReviews = () => {
                                         reviews.map(review => <MyReviewCard
                                             key={review._id}
                                             review={review}
+                                            handleDeleteReview={handleDeleteReview}
                                         ></MyReviewCard>)
                                     }
                                 </>
@@ -45,7 +68,7 @@ const MyReviews = () => {
                 </div>
             </section>
 
-            
+
         </>
     );
 };
