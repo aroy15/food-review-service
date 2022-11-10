@@ -11,7 +11,7 @@ const ServiceCard = ({ service }) => {
         <div className="w-full text-center md:text-left border border-primary bg-white rounded-lg overflow-hidden shadow-md">
             <PhotoProvider>
                 <PhotoView src={image}>
-                    <img className="h-80 w-full object-cover object-center" src={image} alt={serviceName} />
+                    <img className="h-80 w-full object-cover object-center pointer" src={image} alt={serviceName} />
                 </PhotoView>
             </PhotoProvider>
             

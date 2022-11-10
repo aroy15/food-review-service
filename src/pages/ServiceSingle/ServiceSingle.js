@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import BannerBottomCards from '../Home/BannerBottomCards/BannerBottomCards';
 import BannerGlobal from '../Shared/BannerGlobal/BannerGlobal';
@@ -84,9 +84,10 @@ const ServiceSingle = () => {
                         {/* Add Review section */}
 
                         {
-                            user &&
+                            !user ? <h2 className='text-xl pb-6 text-center'>Please login to add a review:  <Link className='text-secondary' to='/login'>login</Link></h2>
+                            :
                             <>
-                                <h2 className='text-4xl pb-6 uppercase'>Please Add a Review</h2>
+                                <h2 className='text-2xl pb-6 uppercase text-center'>Please Add a Review</h2>
                                 <form onSubmit={handleAddReview} className='grid grid-cols-1 md:grid-cols-2 gap-5 pb-12'>
                                     <input type="text" name="name" placeholder="Your Name" defaultValue={user?.displayName} className="input input-md h-14 rounded px-5" required readOnly />
                                     <input type="email" name="email" placeholder="Your Email" defaultValue={user?.email} className="input input-md h-14 rounded px-5" required readOnly />
@@ -100,10 +101,10 @@ const ServiceSingle = () => {
                         }
 
                         {/* Ratings  section*/}
-                        <h2 className='text-4xl pb-6 uppercase'>Reviews of this service:</h2>
+                        <h2 className='text-2xl pb-6 uppercase text-center'>Reviews of this service:</h2>
                         <div className='flex flex-col gap-6'>
                             {
-                                reviews.length < 1 ? <h3 className='text-secondary text-2xl'>No reviews were added</h3>
+                                reviews.length < 1 ? <h3 className='text-secondary text-2xl text-center'>No reviews were added</h3>
                                 :
                                 reviews.map(review => <ReviewCard 
                                     key={review._id}

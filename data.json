@@ -40,5 +40,24 @@
         "image":"https://raw.githubusercontent.com/aroy15/image-store/master/food-service/frozen-paratha.webp",
         "serviceDetails":"Per portion contains 20 pieces. Frozen Poratas are made out of finest quality of flour with a little oil within the layers to make it healthier to focus on having a balance diet. They are half cooked which enables to store for over a month in the refrigerator. Depending on your taste you can deep fry them with oil or clarified butter. Or else you can also cook them with little oil or without oil. Perfect for Breakfast, Lunch & Dinner",
         "rating":4.4
-    }
+    },
+    [
+        {
+            "title":"Difference between SQL and NoSQL",
+            "content":"SQL pronounced as “S-Q-L” or as “See-Quel” is primarily called RDBMS or Relational Databases, whereas NoSQL is a Non-relational or Distributed Database. Comparing SQL vs NoSQL databases, SQL databases are table-based databases, whereas NoSQL databases can be document-based, key-value pairs, and graph databases. SQL databases have a predefined schema, whereas NoSQL. SQL databases are better for multi-row transactions, while NoSQL is better for unstructured data like documents or JSON."
+        },
+        {
+            "title":"What is JWT, and how does it work?",
+            "content":"JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued. A JWT is a string made up of three parts, separated by dots (.), and serialized using base64. In the most common serialization format, compact serialization, the JWT looks something like this: xxxxx.yyyyy.zzzzz."
+        },
+        {
+            "title":"What is the difference between javascript and NodeJS?",
+            "content":"JavaScript is a simple programming language that runs in any browser JavaScript Engine. Whereas Node JS is an interpreter or running environment for a JavaScript programming language that holds many excesses, it requires libraries that can easily be accessed from JavaScript programming for better use. JavaScript running in any engine like Spider monkey (FireFox), JavaScript Core (Safari), V8 (Google Chrome). So JavaScript programming is very easy to write, and put any running environment means proper browser. Whereas Node JS only support the V8 engine, which googles chrome specific. But whether it supports the V8 engine, written JavaScript code can able to run in any environment. So there has no browser-specific constraint on it."
+        },
+        {
+            "title":"How does NodeJS handle multiple requests at the same time?",
+            "content":"NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them. EventLoop is the listener for the EventQueue. If NodeJS can process the request without I/O blocking then the event loop would itself process the request and sends the response back to the client by itself. But, it is possible to process multiple requests parallelly using the NodeJS cluster module or worker_threads module."
+        }
+    ]
+
 ]
