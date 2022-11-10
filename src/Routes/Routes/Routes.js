@@ -9,6 +9,7 @@ import Services from "../../pages/Services/Services";
 import ServiceSingle from "../../pages/ServiceSingle/ServiceSingle";
 import Header from "../../pages/Shared/Header/Header";
 import Signup from "../../pages/Signup/Signup";
+import UpdateReview from "../../pages/UpdateReview/UpdateReview";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
@@ -36,7 +37,12 @@ export const routes = createBrowserRouter([
             },
             {
                 path:'/my-reviews',
-                element:<PrivateRoute><MyReviews/></PrivateRoute>
+                element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+            },
+            {
+                path:'/my-reviews/:id',
+                loader:({params})=>fetch(`http://localhost:5000/reviews/${params.id}`),
+                element:<PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>
             },
             {
                 path:'/blogs',

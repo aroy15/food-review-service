@@ -1,24 +1,51 @@
-import React from 'react';
+import { Button, Modal, Spinner } from 'flowbite-react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import BannerGlobal from '../Shared/BannerGlobal/BannerGlobal';
-import ReviewCard from '../Shared/ReviewCard/ReviewCard';
+import MyReviewCard from './MyReviewCard';
 
 const MyReviews = () => {
+    const [reviews, setReviews] = useState([]);
+    const { user } = useContext(AuthContext);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+            .then(res => {
+                setLoading(true)
+                return res.json()
+            })
+            .then(data => {
+                setReviews(data)
+                setLoading(false)
+            })
+    }, [user?.email])
+
     return (
         <>
             <BannerGlobal title='My All Reviews'></BannerGlobal>
             <section className='pt-20'>
                 <div className="container">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <ReviewCard></ReviewCard>
-                        <ReviewCard></ReviewCard>
-                        <ReviewCard></ReviewCard>
-                        <ReviewCard></ReviewCard>
-                        <ReviewCard></ReviewCard>
-                        <ReviewCard></ReviewCard>
-                        <ReviewCard></ReviewCard>
+                    <div className="flex flex-col md:flex-row gap-6 justify-center">
+                        {
+                            loading ? <Spinner color="failure" aria-label="Failure spinner example" />
+                                :
+                                <>
+                                    {
+                                        reviews.map(review => <MyReviewCard
+                                            key={review._id}
+                                            review={review}
+                                        ></MyReviewCard>)
+                                    }
+                                </>
+                        }
+
+
                     </div>
                 </div>
             </section>
+
+            
         </>
     );
 };
