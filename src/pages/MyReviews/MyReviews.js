@@ -59,6 +59,8 @@ const MyReviews = () => {
                                 :
                                 <>
                                     {
+                                        reviews.length < 1 ? <h2 className='text-secondary text-center text-4xl'>No reviews were added</h2>
+                                        :
                                         reviews.map(review => <MyReviewCard
                                             key={review._id}
                                             review={review}

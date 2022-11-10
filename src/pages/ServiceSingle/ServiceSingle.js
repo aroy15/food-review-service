@@ -10,7 +10,8 @@ const ServiceSingle = () => {
     const [error, setError] = useState('');
     const service = useLoaderData()
     const { serviceName, serviceDetails, image, price, rating, _id } = service;
-    const { user, setLoading, loading } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
+
 
     const handleAddReview = event => {
         event.preventDefault();
@@ -42,7 +43,6 @@ const ServiceSingle = () => {
             body: JSON.stringify(reviewData)
         })
             .then(res => {
-                setLoading(true)
               return  res.json()
             })
             .then(data => {
@@ -50,7 +50,6 @@ const ServiceSingle = () => {
                 if (data.acknowledged) {
                     form.reset();
                 }
-                setLoading(false)
             })
             .catch(err => setError(err.message))
     }
@@ -60,7 +59,7 @@ const ServiceSingle = () => {
         .then(res => res.json())
         .then(data => setReviews(data))
         .catch(err => setError(err.message))
-    },[_id])
+    },[_id,reviews])
 
     return (
         <>
@@ -104,6 +103,8 @@ const ServiceSingle = () => {
                         <h2 className='text-4xl pb-6 uppercase'>Reviews of this service:</h2>
                         <div className='flex flex-col gap-6'>
                             {
+                                reviews.length < 1 ? <h3 className='text-secondary text-2xl'>No reviews were added</h3>
+                                :
                                 reviews.map(review => <ReviewCard 
                                     key={review._id}
                                     review={review}
