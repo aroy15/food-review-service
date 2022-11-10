@@ -28,7 +28,9 @@ const ServiceSingle = () => {
             email,
             photoURL,
             rating,
-            message,
+            message,            
+            serviceName,
+            image,
             date:new Date().toISOString()
         }
 
