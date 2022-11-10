@@ -5,6 +5,7 @@ import deliveryImg from '../../assets/img/food-delevery-free.jpg'
 import gogoleIcon from '../../assets/img/google-icon.webp'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { setAuthToken } from '../../api/Auth';
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -26,6 +27,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user)
+            setAuthToken(user);
             navigate(from, {replace: true});
         })
         .catch(err =>{
@@ -41,6 +43,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user)
+            setAuthToken(user);
             navigate(from, {replace: true});
         })
         .catch(err=>console.log(err))

@@ -24,17 +24,17 @@ const Header = () => {
 					<Link to='/' className='flex items-center'>
 						<img
 							src={logo}
-							className="mr-3 h-6 sm:h-9"
+							className="mr-3 h-6 lg:h-9"
 							alt="Food Service"
 						/>
 					</Link>
 					<div className="flex md:order-2 gap-5">
 						{
 							!user?.email ?
-								<Link to='/login' className='bg-secondary hover:bg-primary text-white rounded px-7 py-2 uppercase font-semibold border-0'>login</Link>
+								<Link to='/login' className='bg-secondary hover:bg-primary text-white rounded px-7 py-2 uppercase font-semibold border-0 hidden md:block'>login</Link>
 								:
 								<>
-									<button onClick={handleSignOut} className='bg-secondary hover:bg-primary text-white rounded px-7 py-2 uppercase font-semibold border-0'>log out</button>
+									<button onClick={handleSignOut} className='bg-secondary hover:bg-primary text-white rounded px-4 lg:px-7 py-2 uppercase font-semibold border-0 hidden md:block'>log out</button>
 									<Tooltip
 										content={user?.displayName}
 										placement="left"
@@ -57,7 +57,7 @@ const Header = () => {
 							<Link to="/blogs" className="block py-2 pr-4 pl-3 text-white md:bg-transparent md:hover:text-primary md:p-0">Blogs</Link>
 						</li>
 						{
-							user?.email &&
+							user?.email ?
 							<>
 								<li>
 									<Link to="/add-service" className="block py-2 pr-4 pl-3 text-white md:bg-transparent md:hover:text-primary md:p-0">Add Service</Link>
@@ -65,8 +65,10 @@ const Header = () => {
 								<li>
 									<Link to="/my-reviews" className="block py-2 pr-4 pl-3 text-white md:bg-transparent md:hover:text-primary md:p-0">My Reviews</Link>
 								</li>
-
+								<button onClick={handleSignOut} className='mt-4 bg-secondary hover:bg-primary text-white rounded px-4 lg:px-7 py-2 uppercase font-semibold border-0  md:hidden'>log out</button>
 							</>
+							:
+							<Link to='/login' className='bg-secondary hover:bg-primary text-white rounded px-7 py-2 uppercase font-semibold border-0 md:hidden'>login</Link>
 						}
 					</Navbar.Collapse>
 				</Navbar>

@@ -15,7 +15,7 @@ const UpdateReview = () => {
         fetch(`http://localhost:5000/reviews/${review._id}`, {
             method: 'PATCH',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
             },
             body: JSON.stringify(review)
         })

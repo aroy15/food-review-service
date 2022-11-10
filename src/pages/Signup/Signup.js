@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import servicesBg from '../../assets/img/services-bg.webp'
 import deliveryImg from '../../assets/img/food-delevery-free.jpg'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { setAuthToken } from '../../api/Auth';
 
 const Signup = () => {
     const [error, setError] = useState('');
@@ -31,6 +32,7 @@ const Signup = () => {
         }
         signUpWithCreateUser(email, password)
         .then(result => {
+            setAuthToken(user);
             const profile ={
                 displayName: name, 
                 photoURL: photoURL

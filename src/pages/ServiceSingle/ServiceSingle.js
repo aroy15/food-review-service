@@ -55,7 +55,7 @@ const ServiceSingle = () => {
     }
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/reviews?id=${_id}`)
+        fetch(`http://localhost:5000/reviews-public?id=${_id}`)
         .then(res => res.json())
         .then(data => setReviews(data))
         .catch(err => setError(err.message))

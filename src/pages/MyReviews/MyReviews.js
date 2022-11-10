@@ -8,22 +8,43 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const MyReviews = () => {
     const [reviews, setReviews] = useState([]);
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [loading, setLoading] = useState(true);
 
     // Edit
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+    //         .then(res => {
+    //             setLoading(true)
+    //             return res.json()
+    //         })
+    //         .then(data => {
+    //             setReviews(data)
+    //             setLoading(false)
+    //         })
+    //         .catch(err => console.log(err))
+    // }, [user?.email])
+
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`,{
+            headers:{
+                authorization: `Bearer ${localStorage.getItem('food-token')}`
+            }
+        })
             .then(res => {
                 setLoading(true)
+                if(res.status === 401 || res.status === 403){
+                  return  logOut()
+                }
                 return res.json()
             })
             .then(data => {
-                setReviews(data)
+                // console.log(data)
                 setLoading(false)
+                return setReviews(data)
             })
             .catch(err => console.log(err))
-    }, [user?.email])
+    }, [user?.email, logOut])
 
     // Delete
     const handleDeleteReview = (_id) => {
@@ -51,7 +72,7 @@ const MyReviews = () => {
     return (
         <>
             <BannerGlobal title='My Reviews'></BannerGlobal>
-            <section className='pt-20'>
+            <section className='py-20'>
                 <div className="container">
                     <div className="flex flex-col md:flex-row gap-6 justify-center">
                         {

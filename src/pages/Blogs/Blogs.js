@@ -14,7 +14,7 @@ const Blogs = () => {
                         {
                             blogsContent.map(blog=><div                             
                             key={blog._id}
-                            className='shadow-md p-5 rounded-md border border-gray-200'
+                            className='shadow-xl p-6 rounded-md border border-gray-300'
                             >
                                 <h3 className='text-2xl uppercase mb-5'>{blog.title}</h3>
                                 <p>{blog.content}</p>
