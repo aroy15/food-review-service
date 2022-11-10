@@ -10,7 +10,7 @@ const ServicesSection = () => {
 
     useEffect(() => {
         const limit = 3;
-        fetch(`http://localhost:5000/services?limit=${limit}`)
+        fetch(`https://b6a11-service-review-server-side-aroy15.vercel.app/services?limit=${limit}`)
             .then(res => res.json())
             .then(data => {
                 setLoading(false)

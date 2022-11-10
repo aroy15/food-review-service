@@ -35,7 +35,7 @@ const ServiceSingle = () => {
             date:new Date().toISOString()
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://b6a11-service-review-server-side-aroy15.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 "content-type": "application/json",
@@ -55,7 +55,7 @@ const ServiceSingle = () => {
     }
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/reviews-public?id=${_id}`)
+        fetch(`https://b6a11-service-review-server-side-aroy15.vercel.app/reviews-public?id=${_id}`)
         .then(res => res.json())
         .then(data => setReviews(data))
         .catch(err => setError(err.message))

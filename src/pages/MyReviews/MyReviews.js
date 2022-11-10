@@ -13,7 +13,7 @@ const MyReviews = () => {
 
     // Edit
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+    //     fetch(`https://b6a11-service-review-server-side-aroy15.vercel.app/reviews?email=${user?.email}`)
     //         .then(res => {
     //             setLoading(true)
     //             return res.json()
@@ -26,7 +26,7 @@ const MyReviews = () => {
     // }, [user?.email])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`,{
+        fetch(`https://b6a11-service-review-server-side-aroy15.vercel.app/reviews?email=${user?.email}`,{
             headers:{
                 authorization: `Bearer ${localStorage.getItem('food-token')}`
             }
@@ -50,7 +50,7 @@ const MyReviews = () => {
     const handleDeleteReview = (_id) => {
         const proceed = window.confirm('Are you sure, you want delete this review?')
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${_id}`, {
+            fetch(`https://b6a11-service-review-server-side-aroy15.vercel.app/reviews/${_id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

@@ -27,7 +27,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path:'/services/:id',
-                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`),
+                loader:({params})=>fetch(`https://b6a11-service-review-server-side-aroy15.vercel.app/services/${params.id}`),
                 element:<ServiceSingle></ServiceSingle>
             },
             {
@@ -40,12 +40,12 @@ export const routes = createBrowserRouter([
             },
             {
                 path:'/my-reviews/:id',
-                loader:({params})=>fetch(`http://localhost:5000/reviews/${params.id}`),
+                loader:({params})=>fetch(`https://b6a11-service-review-server-side-aroy15.vercel.app/reviews/${params.id}`),
                 element:<PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>
             },
             {
                 path:'/blogs',
-                loader:()=>fetch('http://localhost:5000/blogs'),
+                loader:()=>fetch('https://b6a11-service-review-server-side-aroy15.vercel.app/blogs'),
                 element:<Blogs></Blogs>
             },
             {

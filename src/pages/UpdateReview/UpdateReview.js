@@ -12,7 +12,7 @@ const UpdateReview = () => {
     const handleUpdateReview = event => {
         event.preventDefault();
 
-        fetch(`http://localhost:5000/reviews/${review._id}`, {
+        fetch(`https://b6a11-service-review-server-side-aroy15.vercel.app/reviews/${review._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
