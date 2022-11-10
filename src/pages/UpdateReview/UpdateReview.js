@@ -7,6 +7,7 @@ const UpdateReview = () => {
     const [review, setReview] = useState(storedReview);
     const { rating, message, image, serviceName } = review;
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleUpdateReview = event => {
         event.preventDefault();
@@ -23,6 +24,8 @@ const UpdateReview = () => {
                 return setReview(data)
             })
             .catch(err => setError(err))
+
+        navigate('/my-reviews')
     }
 
     const handleInputChange = event => {
@@ -39,7 +42,7 @@ const UpdateReview = () => {
                 <div className="flex flex-row items-center gap-6 lg:p-8 lg:bg-white sm:shadow rounded-md max-w-5xl w-full mx-auto">
                     <div className='w-2/5 hidden lg:flex flex-col justify-center items-center text-center'>
                         <h3 className='text-2xl pb-5'> {serviceName && serviceName}</h3>
-                        {image && <img src={image} className="w-full h-80 object-cover  rounded-md" alt="" />}
+                        {image && <img src={image} className="w-full h-80 object-cover object-center rounded-md" alt="" />}
                     </div>
                     <div className='w-full lg:w-3/5 rounded py-12 px-8 shadow-md border border-gray-200 bg-white'>
                         <h2 className='text-4xl text-center pb-6'>Update Review</h2>

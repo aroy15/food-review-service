@@ -73,7 +73,7 @@ const ServiceSingle = () => {
                         <h2 className='text-4xl py-8 uppercase'>{serviceName}</h2>
                         <div className='text-2xl color-primary font-bold pb-8 flex gap-8'>
                             <p>Price: <span className='text-primary'>${price}</span></p>
-                            <p>Rating: <span className='text-yellow-500'>{rating}</span></p>
+                            {rating && <p>Rating: <span className='text-yellow-500'>{rating}</span></p>}
                         </div>
                         <p>{serviceDetails}</p>
                     </div>

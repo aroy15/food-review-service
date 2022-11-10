@@ -17,8 +17,8 @@ const MyReviewCard = ({ review, handleDeleteReview }) => {
                 <p className='pt-2 italic'>Rating: <span className='text-yellow-500 font-semibold'>{rating}</span></p>
             </div>
             <div className='pt-2 flex'>
-                <Link to={`/my-reviews/${_id}`} className='flex gap-3 items-center justify-center w-1/2 bg-secondary hover:bg-primary text-white p-2 uppercase font-semibold border-r-2 border-red-300'>Edit <FaRegEdit /></Link>
-                <button onClick={()=>handleDeleteReview(_id)} className='flex gap-3 items-center justify-center w-1/2 bg-secondary hover:bg-primary text-white p-2 uppercase font-semibold border-0'>Delete <FaTrashAlt /></button>
+                <Link to={`/my-reviews/${_id}`} className='flex gap-2 items-center justify-center w-1/2 bg-secondary hover:bg-primary text-white p-2 uppercase font-semibold border-r-2 border-red-300 text-sm'>Edit Review<FaRegEdit /></Link>
+                <button onClick={()=>handleDeleteReview(_id)} className='flex gap-2 items-center justify-center w-1/2 bg-secondary hover:bg-primary text-white p-2 uppercase font-semibold border-0 text-sm'>Delete Review<FaTrashAlt /></button>
             </div>
         </div>
     );

@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import BannerGlobal from '../Shared/BannerGlobal/BannerGlobal';
 import MyReviewCard from './MyReviewCard';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyReviews = () => {
     const [reviews, setReviews] = useState([]);
@@ -34,7 +36,10 @@ const MyReviews = () => {
                 .then(data => {
                     console.log(data)
                     if(data.deletedCount>0){
-                        alert('deleted successfully');
+                        toast.success(`Deleted Successfully 😃`,{
+                            position: "top-center",
+                            toastId: `option-${_id}`
+                        })
                         const remainingReviews = reviews.filter(review=> review._id !== _id);
                         setReviews(remainingReviews);
                     }
@@ -45,7 +50,7 @@ const MyReviews = () => {
 
     return (
         <>
-            <BannerGlobal title='My All Reviews'></BannerGlobal>
+            <BannerGlobal title='My Reviews'></BannerGlobal>
             <section className='pt-20'>
                 <div className="container">
                     <div className="flex flex-col md:flex-row gap-6 justify-center">
@@ -62,9 +67,8 @@ const MyReviews = () => {
                                     }
                                 </>
                         }
-
-
                     </div>
+                    <ToastContainer></ToastContainer>
                 </div>
             </section>
 
